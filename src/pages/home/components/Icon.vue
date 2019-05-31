@@ -9,9 +9,10 @@
           <div class="icon-title">{{item.title}}</div>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-scrollbar" slot="scollbar"></div>
     </swiper>
   </div>
-
 </template>
 
 <script>
@@ -20,7 +21,8 @@
     data() {
       return {
         swiperOption:{
-          loop: false
+          pagination: '.swiper-pagination',
+          autoplay: false
         },
         iconLists: [
           {
@@ -98,9 +100,10 @@
   .icons >>> swiper
     height: 0
     padding-bottom: 50%
+   .icons >>> .swiper-pagination-bullet-active
+     background-color: rgba(0,175,190,.8)
   .icons
     overflow: hidden
-
     .icon
       position: relative
       float: left
