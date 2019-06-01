@@ -18,7 +18,7 @@
 <style lang="stylus" scoped>
   ul
     display: flex
-    /*overflow hidden*/
+    overflow hidden
     margin-top: .2rem
     li
       flex: 1
