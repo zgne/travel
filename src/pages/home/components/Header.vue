@@ -8,10 +8,11 @@
       请输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-      <span>
+      <router-link to="/city">
+        <span>
         {{this.city}}<i class="iconfont arrow-icon">&#xe64a;</i>
       </span>
-
+      </router-link>
     </div>
   </div>
 </template>
@@ -19,7 +20,7 @@
 <script>
   export default {
     name: 'HomeHeader',
-    props:{
+    props: {
       city: String
     }
   }
@@ -30,15 +31,18 @@
   .header
     color: #ffffff
     display: flex
-    height: .86rem
-    line-height: .86rem
-    background: #00bcd4
+    height: $bgHeight
+    line-height: $bgHeight
+    background: $bgColor
+
     .header-left
       float: left
-      width: .64rem
+      width: $backWidth
       text-align: center
+
       .back-icon
         font-size: .4rem
+
     .header-input
       flex-grow: 1
       color: #ccc
@@ -49,17 +53,22 @@
       padding-left: .2rem
       border-radius: .1rem
       background-color: #fff
+
     .header-right
       /*float: right*/
       /*position: relative*/
       width: 1.24rem
-      height: .88rem
+      height: $bgHeight
       text-align: center
-      span
-        position: absolute
-        right: .2rem
-        .arrow-icon
-          margin-left: .04rem
-          font-size: .24rem
 
+      a
+        color: #fff
+
+        span
+          position: absolute
+          right: .2rem
+
+          .arrow-icon
+            margin-left: .04rem
+            font-size: .24rem
 </style>
