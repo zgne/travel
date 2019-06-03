@@ -65,7 +65,7 @@
         box-sizing border-box
         /*margin: 0 1rem*/
         margin: .22rem .8rem .24rem .8rem
-        border: 1px solid #fff
+        border: .02rem solid #fff
         border-radius .03rem
         height: .4rem
 

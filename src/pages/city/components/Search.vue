@@ -25,7 +25,7 @@
       width: 100%
       font-family: Microsoft Yahei
       height .62rem
-      font-size: .24rem
+      font-size: .26rem
       line-height: .62rem
       border-radius .06rem
       text-align: center
