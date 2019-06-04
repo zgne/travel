@@ -2,8 +2,18 @@
   <div class="city">
     <city-header></city-header>
     <city-search></city-search>
-    <city-list></city-list>
-    <city-alphabet></city-alphabet>
+    <city-list
+      :cities = "cities"
+      :hot = "hotCities"
+      :letter = "letter"
+    >
+    </city-list>
+    <city-alphabet
+      :cities = "cities"
+      @change = "handleLetterChange"
+    >
+
+    </city-alphabet>
   </div>
 </template>
 
@@ -12,13 +22,45 @@
   import CitySearch from './components/Search'
   import CityList from './components/List'
   import CityAlphabet from './components/Alphabet'
+  import axios from 'axios'
+
   export default {
     name: 'City',
-    components:{
+    components: {
       CityHeader,
       CitySearch,
       CityList,
       CityAlphabet
+    },
+    data(){
+      return {
+        hotCities: [],
+        cities: {},
+        letter: ''
+      }
+    },
+    methods: {
+      getCityInfo() {
+        axios.get('/api/city.json')
+          .then(this.getCityInfoSucc)
+      },
+      getCityInfoSucc(res) {
+        // console.log(res);
+        res = res.data;
+        // console.log(res);
+        if (res.ret && res.data){
+          const data = res.data
+          this.hotCities = data.hotCities
+          this.cities = data.cities
+        }
+      },
+      handleLetterChange(e){
+        this.letter = e
+        // console.log(e);
+      }
+    },
+    mounted() {
+      this.getCityInfo()
     }
   }
 </script>
