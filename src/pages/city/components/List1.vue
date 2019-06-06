@@ -28,9 +28,8 @@
           <div class="item border-bottom">{{item.name}}</div>
         </div>
       </div>
+      <div class="signAlphabet" ref="showAlphabet" v-if="hideAlphabet">{{letter}}</div>
     </div>
-    <div class="signAlphabet" ref="showAlphabet" v-if="hideAlphabet">{{letter}}</div>
-<!--    <div class="signAlphabet">{{letter}}</div>-->
   </div>
 </template>
 
@@ -62,7 +61,7 @@
           this.scroll.scrollToElement(element);
           // this.hideAlphabet = true;
           var this_ = this;
-          if(this.hideAlphabet === false){
+          if(this.hideAlphabet===false){
             this.hideAlphabet=true;
           }
           setTimeout(function(){//此处可以用箭头函数进行操作
@@ -86,16 +85,6 @@
 
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
-  .border-topbottom
-    &:before
-      border-color: #ccc
-
-    &:after
-      border-color #ccc
-
-  .border-bottom
-    &:before
-      border-color #ccc
   .list
     position: absolute
     top: 1.58rem
@@ -104,7 +93,48 @@
     bottom: 0
     overflow: hidden
     /*background-color: red*/
+
+    .border-topbottom
+      &:before
+        border-color: #ccc
+
+      &:after
+        border-color #ccc
+
+      .border-bottom
+        &:before
+          border-color #ccc
+
+    .title
+      color: #666
+      padding-left: .2rem
+      font-size: .24rem
+      line-height: .54rem
+      background-color: #eee
+
+    .city-list
+      overflow: hidden
+      padding: .1rem .6rem .1rem .1rem
+
+      .city
+        float: left
+        width: 33.3%
+
+        .city-btn
+          margin: .1rem
+          font-size: .28rem
+          text-align: center
+          padding: .1rem 0
+          border-radius: .06rem
+          border: .02rem solid #ccc
+
+    .item-list
+      .item
+        padding-left: .2rem
+        line-height: .76rem
+
     .signAlphabet
+      /*display none*/
       position: absolute
       top: 50%
       left: 50%
@@ -118,36 +148,6 @@
       text-align: center
       background-color: rgba(0, 188, 212, .5)
 
-    /*.show-signAlphabet*/
-      /*  display block*/
-    .address
-      .title
-        color: #666
-        padding-left: .2rem
-        font-size: .24rem
-        line-height: .54rem
-        background-color: #eee
-
-      .city-list
-        overflow: hidden
-        padding: .1rem .6rem .1rem .1rem
-
-        .city
-          float: left
-          width: 33.3%
-
-          .city-btn
-            margin: .1rem
-            font-size: .28rem
-            text-align: center
-            padding: .1rem 0
-            border-radius: .06rem
-            border: .02rem solid #ccc
-
-      .item-list
-        .item
-          padding-left: .2rem
-          line-height: .76rem
-
-
+  /*.show-signAlphabet*/
+  /*  display block*/
 </style>

@@ -8,6 +8,7 @@
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
+      @mouseup="handleMouseEnd"
     >
       {{item}}
     </li>
@@ -38,13 +39,17 @@
         return letters
       }
     },
+    // mounted(){
+    //
+    // },
     updated() {
       this.startY = this.$refs['A'][0].offsetTop
     },
     methods: {
       handleLetterClick(e) {
         // console.log(e);
-        this.$emit('change', e.target.innerText)
+        this.$emit('change', e.target.innerText);
+        // passive: false;
       },
       handleTouchStart() {
         this.touchStatus = true
@@ -58,12 +63,11 @@
           // console.log(555.4-this.$refs['Z'][0].offsetTop);//距离有定位父盒子的距离
           // console.log(e.touches[0].clientY);//触摸时手指距离网页顶部的距离
 
-
           // 函数节流
           if (this.timer) {
             clearTimeout(this.timer)
           }
-          this.timer = setTimeout(() => {
+          this.timer = setTimeout(() => {// 使用箭头函数，所以this依然指向定义时所在的作用域，而非运行时的作用域
               const touchY = e.touches[0].clientY - 79;
               // console.log(touchY);
               const index = Math.floor((touchY - this.startY) / 20);
@@ -80,7 +84,10 @@
       },
       handleTouchEnd() {
         this.touchStatus = false;
-        Bus.$emit('stopShowAlphabet')
+        // Bus.$emit('stopShowAlphabet')
+      },
+      handleMouseEnd(){
+        console.log(1);
       }
     }
   }

@@ -3,11 +3,7 @@
     <div class="city-search">
       <input type="text" placeholder="请输入城市名或拼音" class="search-input" v-model="keyword">
     </div>
-    <div
-      class="search-list"
-      ref="search"
-      v-show="keyword"
-    >
+    <div class="search-list" ref="search">
       <ul>
         <li
           class="search-item border-bottom"
@@ -16,7 +12,6 @@
         >
           {{item.name}}
         </li>
-        <li class="no-data border-bottom" v-show="!list.length">未找到匹配数据</li>
       </ul>
     </div>
   </div>
@@ -43,7 +38,7 @@
           clearTimeout(this.timer)
         }
         if (!this.keyword) {
-          this.list = [];
+          this.list = []
           return
         }
         this.timer = setTimeout(() => {
@@ -53,15 +48,15 @@
               if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
                 result.push(value)
               }
-            });
+            })
             this.list = result
           }
         }, 100)
       }
     },
     mounted () {
-      this.scroll = new Bscroll(this.$refs.search);
-      // console.log(this.scroll);
+      this.scroll = new Bscroll(this.$refs.search)
+      console.log(this.scroll);
     },
   }
 </script>
@@ -94,10 +89,10 @@
     left: 0
     right: 0
     bottom: 0
-    background-color: #eee
+    /*background-color: #eee*/
     //background-color: rgba(256,256,256,.5)
 
-    .search-item,.no-data
+    .search-item
       color: #666
       padding-left: .2rem
       line-height: .62rem
