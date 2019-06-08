@@ -1,6 +1,9 @@
 <template>
   <div id="home">
-    <home-header :city="city"></home-header>
+<!--    Vuex前-->
+<!--    <home-header :city="city"></home-header>-->
+    <!--    Vuex后-->
+    <home-header></home-header>
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
     <home-map></home-map>
@@ -30,7 +33,9 @@
     },
     data() {
       return {
-        city: '',
+        // Vuex前
+        // city: '',
+        // Vuex后
         swiperList: [],
         iconList: [],
         recommendList: [],
@@ -46,7 +51,9 @@
         res = res.data;
         if (res.ret && res.data) {
           const data = res.data;
-          this.city = data.city;
+          // Vuex前
+          // this.city = data.city;
+          // Vuex后
           this.swiperList = data.swiperList;
           this.iconList = data.iconList;
           this.recommendList = data.recommendList;

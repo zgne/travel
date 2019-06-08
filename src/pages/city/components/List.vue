@@ -5,14 +5,19 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="city-list">
           <div class="city">
-            <div class="city-btn">北京</div>
+            <div class="city-btn">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
       <div class="address">
         <div class="title border-topbottom">热门城市</div>
         <div class="city-list">
-          <div class="city" v-for="item of hot" :key="item.id">
+          <div
+            class="city"
+            v-for="item of hot"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+          >
             <div class="city-btn">{{item.name}}</div>
           </div>
         </div>
@@ -50,9 +55,14 @@
         hideAlphabet: false
       }
     },
-    mounted() {
-
-      this.scroll = new Bscroll(this.$refs.wrapper)
+    methods:{
+      handleCityClick(city){
+        // console.log(city);
+        // 非异步，可以直接调用commit
+        // this.$store.dispatch("changeCity",city)
+        this.$store.commit('changeCity',city)
+        this.$router.push('/')
+      }
     },
     watch: {
       letter() {
@@ -80,6 +90,9 @@
         }
         // console.log(this.letter);
       }
+    },
+    mounted() {
+      this.scroll = new Bscroll(this.$refs.wrapper)
     },
   }
 </script>

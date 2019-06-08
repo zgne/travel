@@ -10,7 +10,7 @@
     <div class="header-right">
       <router-link to="/city">
         <span>
-        {{this.city}}<i class="iconfont arrow-icon">&#xe64a;</i>
+        {{this.$store.state.city}}<i class="iconfont arrow-icon">&#xe64a;</i>
       </span>
       </router-link>
     </div>
@@ -20,9 +20,11 @@
 <script>
   export default {
     name: 'HomeHeader',
-    props: {
-      city: String
-    }
+    // Vuex前
+    // props: {
+    //   city: String
+    // }
+    // Vuex后
   }
 </script>
 
