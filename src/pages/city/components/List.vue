@@ -29,7 +29,12 @@
         :ref="key"
       >
         <div class="title border-topbottom">{{key}}</div>
-        <div class="item-list" v-for="item in items" :key="item.id">
+        <div
+          class="item-list"
+          v-for="item in items"
+          :key="item.id"
+          @click="handleCityClick(item.name)"
+        >
           <div class="item border-bottom">{{item.name}}</div>
         </div>
       </div>

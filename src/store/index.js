@@ -10,13 +10,15 @@
 // })
 import Vue from 'vue'
 import Vuex from 'vuex'
+import state from './state'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
+
+
 export default new Vuex.Store({
-  state: {
-    city: '北京'
-  },
+  state: state,
   // 非异步，可以直接调用commit
   // actions: {
   //   changeCity(ctx, city) {
@@ -24,10 +26,6 @@ export default new Vuex.Store({
   //     ctx.commit('changeCity', city)
   //   }
   // },
-  mutations: {
-    changeCity(state, city) {
-      state.city = city
-    }
-  }
+  mutations: mutations
 })
 
