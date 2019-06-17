@@ -3,7 +3,7 @@
     <div class="wrapper">
       <swiper :options="swiperOptions">
         <swiper-slide
-          v-for="(image,index) of this.images"
+          v-for="(image,index) of this.imgs"
           :key="index"
         >
           <img :src="image" alt="">
@@ -18,12 +18,7 @@
   export default {
     name: 'DetailGallery',
     props:{
-      images:{
-        type: Array,
-        default(){
-          return ['http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg','http://img1.qunarzz.com/sight/p55/201211/04/fbcab3e5d6479ce893835fbb.jpg_r_800x800_6360f514.jpg','http://img1.qunarzz.com/wugc/p180/201306/16/7f08e81624346b1693835fbb.jpg_r_800x800_5f03ad73.jpg']
-        }
-      }
+      imgs: Array
     },
     data(){
       return{
@@ -46,6 +41,7 @@
 
 <style lang="stylus" scoped>
   .gallery
+    z-index: 99
     display flex
     /*flex-wrap wrap*/
     /*align-items center*/

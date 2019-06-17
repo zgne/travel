@@ -6,24 +6,28 @@
       </div>
       <ul>
           <router-link
-            tag="li"
-            class="item border-bottom"
             v-for="item in list"
             :key="item.id"
             :to="'/detail/'+item.id"
           >
-            <img :src="item.imgUrl" :alt="item.title">
-            <div class="recommend-content">
-              <div class="recommend-content-title">{{item.title}}</div>
-              <div class="stars iconfont">
-                <span style="color: #ffb436">&#xe870;&#xe870;&#xe870;&#xe870;&#xe870;</span>
-                <span class="comment">{{item.comments}}条评论</span>
+            <li
+              class="item border-bottom"
+              @click="handleClickId(item.id)"
+            >
+
+              <img :src="item.imgUrl" :alt="item.title">
+              <div class="recommend-content">
+                <div class="recommend-content-title">{{item.title}}</div>
+                <div class="stars iconfont">
+                  <span style="color: #ffb436">&#xe870;&#xe870;&#xe870;&#xe870;&#xe870;</span>
+                  <span class="comment">{{item.comments}}条评论</span>
+                </div>
+                <div class="like-price">
+                  <button>查看详情</button>
+                  <span>{{item.address}}</span>
+                </div>
               </div>
-              <div class="like-price">
-                <button>查看详情</button>
-                <span>{{item.address}}</span>
-              </div>
-            </div>
+            </li>
           </router-link>
 
       </ul>
@@ -32,65 +36,21 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
   export default {
     name: 'HomeRecommend',
     props:{
       list: Array
     },
     data() {
-      return {
-        // recommentList: [
-        //   {
-        //     id: '0001',
-        //     imgUrl: '../../../../static/images/recommend-1.jpg',
-        //     title: '溧水天生桥公园',
-        //     comments: '100',
-        //     address: '溧水县'
-        //   }, {
-        //     id: '0002',
-        //     imgUrl: '../../../../static/images/recommend-2.jpg',
-        //     title: '银杏湖乐园',
-        //     comments: '100',
-        //     address: '江宁区'
-        //   }, {
-        //     id: '0003',
-        //     imgUrl: '../../../../static/images/recommend-3.jpg',
-        //     title: '紫清湖生态温泉',
-        //     comments: '100',
-        //     address: '江宁区'
-        //   }, {
-        //     id: '0004',
-        //     imgUrl: '../../../../static/images/recommend-4.jpg',
-        //     title: '牛首山文化旅游区',
-        //     comments: '100',
-        //     address: '江宁区'
-        //   }, {
-        //     id: '0005',
-        //     imgUrl: '../../../../static/images/recommend-5.jpg',
-        //     title: '溧水天生桥公园',
-        //     comments: '100',
-        //     address: '溧水县'
-        //   }, {
-        //     id: '0006',
-        //     imgUrl: '../../../../static/images/recommend-6.jpg',
-        //     title: '溧水天生桥公园',
-        //     comments: '100',
-        //     address: '溧水县'
-        //   }, {
-        //     id: '0007',
-        //     imgUrl: '../../../../static/images/recommend-7.jpg',
-        //     title: '溧水天生桥公园',
-        //     comments: '100',
-        //     address: '溧水县'
-        //   }, {
-        //     id: '0008',
-        //     imgUrl: '../../../../static/images/recommend-8.jpg',
-        //     title: '溧水天生桥公园',
-        //     comments: '100',
-        //     address: '溧水县'
-        //   },
-        // ]
-      }
+      return {}
+    },
+    methods:{
+      handleClickId(id){
+        console.log(id);
+        this.changeId(id)
+      },
+      ...mapMutations(['changeId']),
     }
   }
 </script>
@@ -118,55 +78,57 @@
 
       ul
         margin-left: .24rem
+        a
+          color: #000;
+          .item
+            display flex
+            overflow hidden
+            box-sizing: border-box
+            padding: .2rem 0
+            height: 2.4rem
 
-        .item
-          display flex
-          overflow hidden
-          box-sizing: border-box
-          padding: .2rem 0
-          height: 2.4rem
+            img
+              width: 2rem
+              margin-right: .2rem
 
-          img
-            width: 2rem
-            margin-right: .2rem
-
-          .recommend-content
-            overflow: hidden
-            width: 100%
-
-            .recommend-content-title
-              ellipse()
-              height: .44rem
-              line-height: .44rem
-              font-size: .32rem
-
-            .stars
-              padding-top: .1rem
-              font-size: .24rem
-
-              .comment
-                padding-left: .2rem
-
-            .like-price
-              position: relative
+            .recommend-content
+              overflow: hidden
               width: 100%
-              display flex
-              box-flex: 1
-              font-size: .24rem
-              margin-top: .44rem
 
-              button
+              .recommend-content-title
                 ellipse()
-                color: #ffffff
+                height: .44rem
                 line-height: .44rem
-                padding: 0 .2rem
-                border-radius: .06rem
-                background-color: #ff8300
-                /*&:hover*/
-                /*  cursor: pointer*/
+                font-size: .32rem
 
-              span
-                position: absolute
-                right: .24rem
-                bottom: 0
+              .stars
+                padding-top: .1rem
+                font-size: .24rem
+
+                .comment
+                  ellipse()
+                  padding-left: .2rem
+
+              .like-price
+                position: relative
+                width: 100%
+                display flex
+                box-flex: 1
+                font-size: .24rem
+                margin-top: .44rem
+
+                button
+                  ellipse()
+                  color: #ffffff
+                  line-height: .44rem
+                  padding: 0 .2rem
+                  border-radius: .06rem
+                  background-color: #ff8300
+                  /*&:hover*/
+                  /*  cursor: pointer*/
+
+                span
+                  position: absolute
+                  right: .24rem
+                  bottom: 0
 </style>

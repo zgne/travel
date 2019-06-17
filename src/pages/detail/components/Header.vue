@@ -5,13 +5,16 @@
     :style="opacityStyle"
   >
     <router-link to="/" class="iconfont">&#xe624;</router-link>
-    <h1>故宫</h1>
+    <h1>{{this.title}}</h1>
   </div>
 </template>
 
 <script>
   export default {
     name: 'DetailHeader',
+    props:{
+      title: String
+    },
     data(){
       return{
         showHeader: false,
@@ -68,3 +71,4 @@
       text-align: center
 
 </style>
+

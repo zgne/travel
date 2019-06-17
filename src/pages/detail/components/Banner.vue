@@ -2,17 +2,18 @@
   <div>
     <router-link to="/" class="back"><span class="iconfont">&#xe624;</span></router-link>
     <div class="banner" @click="handleBannerClick">
-      <img src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" alt="">
+      <img :src="bannerImg" alt="">
       <div class="mp-headfeagure-info">
         <div class="mp-imgswipeicon">
           <span class="iconfont">&#xe610;</span>
-          <em>8</em>
+          <em>3</em>
         </div>
-        <div class="mp-headfeagure-title">故宫(AAAAA景区)</div>
+        <div class="mp-headfeagure-title">{{this.sightName}}</div>
       </div>
       <div class="bgc"></div>
     </div>
     <detail-gallery
+      :imgs="galleryImgs"
       v-show="showGallary"
       @close="handleGalleryClose"
     ></detail-gallery>
@@ -25,6 +26,11 @@
     name: 'DetailBanner',
     components:{
       DetailGallery
+    },
+    props:{
+      sightName: String,
+      bannerImg: String,
+      galleryImgs: Array,
     },
     data(){
       return{
