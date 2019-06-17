@@ -12,20 +12,24 @@
       </div>
       <div class="bgc"></div>
     </div>
-    <detail-gallery
-      :imgs="galleryImgs"
-      v-show="showGallary"
-      @close="handleGalleryClose"
-    ></detail-gallery>
+    <fade-animation>
+      <detail-gallery
+        :imgs="galleryImgs"
+        v-show="showGallary"
+        @close="handleGalleryClose"
+      ></detail-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
   import DetailGallery from 'common/gallery/Gallery'
+  import FadeAnimation from 'common/fade/Fade'
   export default {
     name: 'DetailBanner',
     components:{
-      DetailGallery
+      DetailGallery,
+      FadeAnimation
     },
     props:{
       sightName: String,
