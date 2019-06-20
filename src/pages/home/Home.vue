@@ -9,6 +9,7 @@
     <home-map></home-map>
     <home-recommend :list="recommendList"></home-recommend>
     <home-weekend :list="weekendList"></home-weekend>
+    <h1></h1>
   </div>
 </template>
 
@@ -48,6 +49,10 @@
       ...mapState(['city'])
     },
     methods: {
+      // getTest(){
+      //   axios.get('/api/test')
+      //     .then(res=>console.log(res.data))
+      // },
       getHomeInfo() {
         axios.get('/api/index.json?city='+this.city)
           .then(this.getHomeInfoSucc)
@@ -56,10 +61,11 @@
         res = res.data;
         // console.log(res);
         if (res.ret && res.data) {
-          const data = res.data;
           // Vuex前
           // this.city = data.city;
           // Vuex后
+          const data = res.data;
+          // console.log(data.swiperList);
           this.swiperList = data.swiperList;
           this.iconList = data.iconList;
           this.recommendList = data.recommendList;
@@ -70,6 +76,7 @@
     mounted() {
       this.lastCity = this.city
       this.getHomeInfo()
+      // this.getTest()
     },
     activated() {
       if(this.lastCity !== this.city){

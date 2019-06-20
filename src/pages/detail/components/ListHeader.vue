@@ -35,7 +35,7 @@
     },
     methods:{
       handleScroll(){
-        const top = document.documentElement.scrollTop
+        const top = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop;
         // console.log(top);
         if(top>160){
           this.fixedTitle = {

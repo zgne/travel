@@ -25,7 +25,7 @@
     },
     methods:{
       handleScroll(){
-        const top = document.documentElement.scrollTop
+        const top = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop;
         // console.log(top);
         if(top>60){
           let headerOpacity = top/140
