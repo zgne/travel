@@ -47,7 +47,7 @@
     },
     methods:{
       handleClickId(id){
-        console.log(id);
+        // console.log(id);
         this.changeId(id)
       },
       ...mapMutations(['changeId']),

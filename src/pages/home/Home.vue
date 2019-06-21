@@ -9,7 +9,7 @@
     <home-map></home-map>
     <home-recommend :list="recommendList"></home-recommend>
     <home-weekend :list="weekendList"></home-weekend>
-    <h1></h1>
+    <footer-tab></footer-tab>
   </div>
 </template>
 
@@ -18,8 +18,10 @@
   import HomeSwiper from './components/Swiper'
   import HomeIcons from './components/Icon'
   import HomeMap from './components/Map'
-  import HomeRecommend from './components/Recommend'
-  import HomeWeekend from './components/Weekend'
+  import FooterTab from '../../common/footertab/FooterTab'
+
+  // import HomeRecommend from './components/Recommend'
+  // import HomeWeekend from './components/Weekend'
   import axios from 'axios'
   import { mapState } from 'vuex'
 
@@ -30,8 +32,9 @@
       HomeSwiper,
       HomeIcons,
       HomeMap,
-      HomeRecommend,
-      HomeWeekend
+      FooterTab,
+      HomeRecommend: resolve => require(['./components/Recommend'],resolve),
+      HomeWeekend: resolve => require(['./components/Weekend'],resolve)
     },
     data() {
       return {
