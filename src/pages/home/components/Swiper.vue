@@ -22,6 +22,7 @@
         swiperOption: {
           pagination: '.swiper-pagination',
           loop: true,
+          autoplay: 3000
         },
       }
     },

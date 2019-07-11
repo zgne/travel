@@ -10,7 +10,9 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+import axios from 'axios';
 
+axios.defaults.withCredentials=true;
 // process.env.MOCK && require('@/mock')
 
 Vue.config.productionTip = false
@@ -24,4 +26,4 @@ new Vue({
   store,
   components: { App },
   template: '<App/>'
-})
+});

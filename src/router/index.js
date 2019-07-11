@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // import City from '@/pages/city/City'
 // import Detail from '@/pages/detail/Detail'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode:'history',
@@ -34,6 +34,11 @@ export default new Router({
       path: '/register',
       name: 'UserRegister',
       component: resolve => require(['@/pages/user/components/Register'],resolve)
+    },
+    {
+      path: '/login',
+      name: 'LogIn',
+      component: resolve => require(['@/pages/user/components/LogIn'],resolve)
     }
   ],
   scrollBehavior(to, from, savedPosition) {

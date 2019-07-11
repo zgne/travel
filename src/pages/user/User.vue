@@ -71,7 +71,7 @@
     },
     methods: {
       userRegister(){
-        this.$router.push('/register')
+        this.$router.push('/login')
       }
     }
     /*

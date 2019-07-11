@@ -19,7 +19,7 @@ var Email = {
     port: 587,
     auth:{
       user: '1169264363@qq.com',
-      pass: 'joipayyjpdomifce'
+      pass: 'vihdxvyyyouvhifh'
     }
   },
   get transporter(){

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // alert(0.1+0.2); // 0.30000000000000004
+    // alert(null === undefined); // false
+    /*
+    console.log(null === null); // true
+    console.log(0 === -0); // true
+    console.log(Object.is('foo', 'foo'));// true
+    console.log(Object.is({}, {}));// false
+    console.log(Object.is(NaN, NaN));// true
+    console.log(Object.is(0,-0));// false
+    console.log(parseInt(55, 8)); // 45
+     */
+    // console.log('a b'.length);
+    /*
+    let num = 10;
+    console.log(null.toString()); // '10'
+    console.log(num.toString(2));// '1010'
+    console.log(num.toString(8));// '12'
+    console.log(num.toString(10));// '10'
+    console.log(num.toString(16));// 'a'
+    */
+
+    /*
+    function Animal(){
+      this.name = "Animal";
+      this.showName = function(){
+        alert(this.name);
+      }
+    }
+    function Cat(){
+      this.name = "Cat";
+    }
+    var animal = new Animal();
+    var cat = new Cat();
+    animal.showName.call(cat,',');
+    */
+    /**
+     *     function Animal(){
+            this.name = "Animal";
+            this.showName = function(){
+                alert(this.name);
+            }
+           }
+           function Cat(){
+              this.name = "Cat";
+          }
+         var animal = new Animal();
+         var cat = new Cat();
+     //通过call或apply方法，将原本属于Animal对象的showName()方法交给对象cat来使用了。
+     //输出结果为"Cat"
+     animal.showName.call(cat,",");
+     //animal.showName.apply(cat,[]);
+     call 的意思是把 animal 的方法放到cat上执行，原来cat是没有showName() 方法，现在是把animal 的showName()方法放到 cat上来执行，所以this.name 应该是 Cat
+     */
+
+    // for in
+    /*
+    Object.prototype.method=function(){
+      console.log(this);
+    };
+    var myObject={
+      a:1,
+      b:2,
+      c:3
+    };
+    for (var key in myObject) {
+      console.log(myObject[key]);
+    }
+    for (var key in myObject) {
+        if(myObject.hasOwnProperty(key)){
+        console.log(key);
+      }
+    }
+    for (var key of Object.keys(myObject)) {
+      console.log(key + ": " + myObject[key]);
+    }
+    console.log(myObject.toString());
+    */
+    /* for in
+    Array.prototype.method = function () {
+      console.log(this.length);
+    };
+    let arr = ['a','b','c','d'];
+    arr.name = '数组';
+    for(let key in arr){
+      // console.log(key);
+      console.log(arr[key]);
+    }
+     */
+    /* for of
+    Array.prototype.method = function () {
+      console.log(this.length);
+    };
+    let arr = ['a','b','c','d'];
+    arr.name = '数组';
+    for(let key of arr){
+      // console.log(key);
+      console.log(key);
+    }
+     */
+    // break
+    /*
+    let num = 0;
+    for(let i=1;i<10;i++){
+      if(i%5===0){
+        break;
+      }
+      num++
+    }
+    console.log(num);
+     */
+    let num = 25;
+    switch (true) {
+      case num<10:
+        alert("a");
+        break;
+      case num>=0 && num<=10:
+        alert('b');
+        break;
+      case num>10 && num<=20:
+        alert('c');
+        break;
+      default:
+        alert('d')
+    }
+  </script>
+</body>
+</html>

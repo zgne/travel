@@ -1,5 +1,5 @@
 <template>
-  <div class="log-on">
+  <div class="log-in">
     <div class="header">
       <router-link
         to="/user"
@@ -13,12 +13,18 @@
         class="register"
       >注册</router-link>
     </div>
+    <div class="header-sub">
+      <div class="tab">
+        <div class="email-login"></div>
+        <div class="username-login"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'LogOn'
+    name: 'LogIn'
   }
 </script>
 
@@ -35,6 +41,8 @@
     .iconfont
       float: left
       color: #75ffff
+      font-weight: bold
+      font-size: .36rem
       padding-left: .2rem
       text-align: center
     .title
